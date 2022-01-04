@@ -1,9 +1,11 @@
 from sqlite3.dbapi2 import Error, OperationalError
 import nextcord
+from nextcord import file
 from nextcord.ext import commands
 import config
 import aiosqlite
 from datetime import date
+import os
 today = date.today()
 client = commands.Bot(command_prefix=config.token)
 
@@ -27,4 +29,10 @@ async def load_db():
         await db.commit()
 
 
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        client.load_extension(f'cogs.{filename[:-3]}')
+        print(f"Successfully loaded cog\n\n{filename[:-3]}\n\n")
+    else:
+        print(f"Error loading cog\n\n{filename[:-3]}\n\n")
 client.run(config.token)
