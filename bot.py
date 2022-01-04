@@ -28,6 +28,15 @@ async def load_db():
                 print(f"Error has happend! {oe}")
         await db.commit()
 
+@client.command()
+async def load(ctx, extension):
+    if ctx.author.id == config.bot_ownerID:
+        client.load_extension(f'cogs.{extension}')
+        embed = nextcord.Embed(title="Cog")
+        embed.set_footer(text=f"Cog {extension} has been loaded!")
+        await ctx.sen(embed=embed)
+    else:
+        await ctx.send(f"You can't run this command only {config.bot_owner_name} with the user id of {config.bot_ownerID}")
 
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
