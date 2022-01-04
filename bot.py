@@ -16,7 +16,7 @@ async def on_ready():
             await cursor.execute("CREATE TABLE IF NOT EXISTS users (userId INTEGER, guildId INTEGER)")
             await cursor.execute("CREATE TABLE IF NOT EXISTS guilds (guildId INTEGER)")
         await db.commit()
-    print(f"I am logged in as {config.botName} my owners id is {config.bot_owner_id} there name is {config.bot_owner_name} the date today is {today}")
+    print(f"I am logged in as {config.botName} my owners id is {config.bot_ownerID} there name is {config.bot_owner_name} the date today is {today}")
     await load_db()
 
 async def load_db():
