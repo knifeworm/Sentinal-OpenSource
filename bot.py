@@ -16,7 +16,7 @@ async def on_ready():
             await cursor.execute("CREATE TABLE IF NOT EXISTS users (userId INTEGER, guildId INTEGER)")
             await cursor.execute("CREATE TABLE IF NOT EXISTS guilds (guildId INTEGER)")
         await db.commit()
-    print(f"I am logged in as {config.botName} my owners id is {config.bot_ownerID} there name is {config.bot_owner_name} the date today is {today}")
+    print(f"[bot.py] I am logged in as {config.botName} my owners id is {config.bot_ownerID} there name is {config.bot_owner_name} the date today is {today}")
     await load_db()
 
 async def load_db():
@@ -41,7 +41,7 @@ async def load(ctx, extension):
 for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
-        print(f"Successfully loaded cog\n\n{filename[:-3]}\n\n")
+        print(f"[bot.py] Successfully loaded cog\n\n{filename[:-3]}\n\n")
     else:
-        print(f"Error loading cog\n\n{filename[:-3]}\n\n")
+        print(f"[bot.py] Error loading cog\n\n{filename[:-3]}\n\n")
 client.run(config.token)
