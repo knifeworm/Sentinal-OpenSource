@@ -1,0 +1,1 @@
+c:/users/knife/appdata/local/programs/Python/Python310/python.exe bot.py main.py
