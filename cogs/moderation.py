@@ -16,7 +16,7 @@ class Moderation(commands.cog):
 #Commands
     #Test
     @commands.command()
-    async def moderationtest(self)
+    async def moderationtest(self):
         print('[moderatiom.py] Tests Comming Soon!' )
 
 
