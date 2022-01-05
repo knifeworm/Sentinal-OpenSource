@@ -15,6 +15,7 @@ This bot could not be made with out these maintainers!
 Maintainers:
 
 Ilikefivem#6969
+MrPixelTick
 ...
 
 
