@@ -3,7 +3,7 @@ import nextcord
 from nextcord.ext import commands
 
 #Setup
-class Moderation(commands.cog):
+class Moderation(commands.Cog):
 
     def __init__(self, client):
         self.client = client
