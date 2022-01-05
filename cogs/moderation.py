@@ -1,6 +1,6 @@
 #Imports
-import discord
-from discord.ext import commands
+import nextcord
+from nextcord.ext import commands
 
 #Setup
 class Moderation(commands.cog):
@@ -9,10 +9,6 @@ class Moderation(commands.cog):
         self.client = client
 
 #Events
-    @commands.Cog.listener()
-    async def on_ready(self):
-        print('[moderation.py] 100% Loaded!')
-
 #Commands
     #Test
     @commands.command()
@@ -22,4 +18,4 @@ class Moderation(commands.cog):
 
 #End
 def setup(client):
-    client.add_cog(Moderation(client)):
+    client.add_cog(Moderation(client))
