@@ -17,9 +17,9 @@ class Moderation(commands.cog):
 
     #Clear
     @commands.command()
-    @client.has_permissions(manage_messages = True)
+    @commands.has_permissions(manage_messages = True)
     async def clear(self, ctx, amount = 5):
-        embed = discord.Embed(title="Moderation | Clear",description=f"{amount} messages were cleared!",color=0x61FBFB)
+        embed = nextcord.Embed(title="Moderation | Clear",description=f"{amount} messages were cleared!",color=0x61FBFB)
         embed.set_footer(text=f"Information requested by {ctx.author.display_name}",icon_url=f"{ctx.author.avatar_url} {round(client.latency * 1000)}ms")
         await ctx.channel.purge(limit=amount)
 
