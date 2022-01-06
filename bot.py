@@ -85,20 +85,6 @@ for filename in os.listdir('./cogs'):
     else:
         print(f"Error loading cog\n\n{filename[:-3]}\n\n")
 
-#Dog
-@client.command()
-async def dog(ctx):
-   async with aiohttp.ClientSession() as session:
-      request = await session.get('https://some-random-api.ml/img/dog')
-      dogjson = await request.json()
-      request2 = await session.get('https://some-random-api.ml/facts/dog')
-      factjson = await request2.json()
-
-   embed = nextcord.Embed(title="Pictures | Dog",description=factjson['fact'],color=0x49FF2C)
-   embed.set_image(url=dogjson['link'])
-   embed.set_footer(text=f"Information requested by {ctx.author.display_name}",icon_url=f"{ctx.author.avatar_url} {round(self.client.latency * 1000)}ms")
-   print(f"[bot.py]Someone requested a picture of a dog! Woof! Woof!")
-   await ctx.send(embed=embed)
 
 #Cat
 @client.command()

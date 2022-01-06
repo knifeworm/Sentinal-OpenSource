@@ -2,5 +2,5 @@ nextcord
 aiosqlite
 aiosqlite3
 Quart
-discord-ext-ipc
+nextcord-ext-ipc
 aiohttp
