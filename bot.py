@@ -6,6 +6,7 @@ import config
 import aiosqlite
 from datetime import date
 import os
+import aiohttp
 today = date.today()
 
 class MyBot(commands.Bot):
@@ -83,6 +84,36 @@ for filename in os.listdir('./cogs'):
         print(f"Successfully loaded cog\n\n{filename[:-3]}\n\n")
     else:
         print(f"Error loading cog\n\n{filename[:-3]}\n\n")
+
+#Dog
+@client.command()
+async def dog(ctx):
+   async with aiohttp.ClientSession() as session:
+      request = await session.get('https://some-random-api.ml/img/dog')
+      dogjson = await request.json()
+      request2 = await session.get('https://some-random-api.ml/facts/dog')
+      factjson = await request2.json()
+
+   embed = nextcord.Embed(title="Pictures | Dog",description=factjson['fact'],color=0x49FF2C)
+   embed.set_image(url=dogjson['link'])
+   embed.set_footer(text=f"Information requested by {ctx.author.display_name}",icon_url=f"{ctx.author.avatar_url} {round(self.client.latency * 1000)}ms")
+   print(f"[bot.py]Someone requested a picture of a dog! Woof! Woof!")
+   await ctx.send(embed=embed)
+
+#Cat
+@client.command()
+async def dog(ctx):
+   async with aiohttp.ClientSession() as session:
+      request = await session.get('https://some-random-api.ml/animal/cat')
+      dogjson = await request.json()
+      request2 = await session.get('https://some-random-api.ml/facts/cat')
+      factjson = await request2.json()
+
+   embed = nextcord.Embed(title="Pictures | Cat",description=factjson['fact'],color=0x49FF2C)
+   embed.set_image(url=dogjson['link'])
+   embed.set_footer(text=f"Information requested by {ctx.author.display_name}",icon_url=f"{ctx.author.avatar_url} {round(self.client.latency * 1000)}ms")
+   print(f"[bot.py]Someone requested a picture of a cat! Meow.")
+   await ctx.send(embed=embed)
 
 client.ipc.start()
 client.run(config.token)

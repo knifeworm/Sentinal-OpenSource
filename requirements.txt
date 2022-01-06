@@ -3,3 +3,4 @@ aiosqlite
 aiosqlite3
 Quart
 discord-ext-ipc
+aiohttp
