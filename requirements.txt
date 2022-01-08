@@ -4,3 +4,6 @@ aiosqlite3
 Quart
 nextcord-ext-ipc
 aiohttp
+datetime
+humanfriendly
+time

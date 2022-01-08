@@ -23,6 +23,7 @@ class MyBot(commands.Bot):
         print(endpoint, "raised", error)
 
     async def on_ready(self):
+        await client.change_presence(status=nextcord.status=online, activity=nextcord.Game('ONLINE'))
         async with aiosqlite.connect("./data/main.db") as db:
             async with db.cursor() as cursor:
                 await cursor.execute("CREATE TABLE IF NOT EXISTS users (userId INTEGER, guildId INTEGER)")
